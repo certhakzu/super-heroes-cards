@@ -1,17 +1,22 @@
-package co.com.sofka.model.jugador;
+package co.com.sofka.mongo.jugador;
+
+import co.com.sofka.model.jugador.Jugador;
 import co.com.sofka.model.tarjeta.Tarjeta;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Map;
 import java.util.Set;
 
+@Document
 @Data
-@Builder(toBuilder = true)
 @AllArgsConstructor
 @NoArgsConstructor
-public class Jugador {
+public class JugadorDocument {
+    @Id
     private String id;
     private String alias;
     private Integer puntos;
