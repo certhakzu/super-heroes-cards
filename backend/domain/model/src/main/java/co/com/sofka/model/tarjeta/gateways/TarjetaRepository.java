@@ -9,4 +9,5 @@ public interface TarjetaRepository {
     Mono<Tarjeta> actualizar(String id, Tarjeta tarjeta);
     Mono<Tarjeta> eliminar(String id);
     Flux<Tarjeta> listarTodasLasTarjetas();
+    Mono<Tarjeta> obtenerTarjetaPorId(String id);
 }

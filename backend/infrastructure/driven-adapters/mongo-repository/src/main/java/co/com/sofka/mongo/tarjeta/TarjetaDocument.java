@@ -17,4 +17,5 @@ public class TarjetaDocument {
     private String caracteristicas;
     private Integer poder;
     private String urlImagen;
+    private Boolean esVisible;
 }

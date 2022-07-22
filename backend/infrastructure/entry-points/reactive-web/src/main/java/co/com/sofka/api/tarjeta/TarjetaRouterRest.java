@@ -11,10 +11,11 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 
 @Configuration
 public class TarjetaRouterRest {
-@Bean
-public RouterFunction<ServerResponse> routerFunction(TarjetaHandler tarjetaHandler) {
-    return route(POST("/api/usecase/creartarjeta"), tarjetaHandler::crearTarjeta);
-            //.andRoute(GET("/api/usecase/listartarjetas"), tarjetaHandler::listarTarjetas);
-
+    @Bean
+    public RouterFunction<ServerResponse> tarjetaRouterFunctionHandler(TarjetaHandler tarjetaHandler) {
+        return route(GET("/api/listartarjetas"), tarjetaHandler::listarTarjetas)
+                .andRoute(GET("/api/tarjeta/{id}"), tarjetaHandler::obtenerTarjeta)
+                .andRoute(POST("/api/tarjeta/crear"), tarjetaHandler::crearTarjeta)
+                .andRoute(POST("/api/tarjeta/actualizar"), tarjetaHandler::actualizarTarjeta);
     }
 }

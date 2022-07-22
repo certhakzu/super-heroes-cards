@@ -15,4 +15,5 @@ public class Tarjeta {
     private String caracteristicas;
     private Integer poder;
     private String urlImagen;
+    private Boolean esVisible;
 }

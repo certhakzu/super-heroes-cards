@@ -2,10 +2,7 @@ package co.com.sofka.mongo.ronda;
 
 import co.com.sofka.model.ronda.Ronda;
 import co.com.sofka.model.ronda.gateways.RondaRepository;
-import co.com.sofka.model.tarjeta.Tarjeta;
-import co.com.sofka.model.tarjeta.gateways.TarjetaRepository;
 import co.com.sofka.mongo.helper.AdapterOperations;
-import co.com.sofka.mongo.tarjeta.TarjetaDocument;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;

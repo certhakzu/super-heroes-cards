@@ -1,6 +1,5 @@
 package co.com.sofka.mongo.config;
 
-import co.com.sofka.mongo.config.MongoDBSecret;
 import org.springframework.boot.autoconfigure.mongo.ReactiveMongoClientFactory;
 import org.springframework.boot.autoconfigure.mongo.MongoClientSettingsBuilderCustomizer;
 import org.springframework.boot.autoconfigure.mongo.MongoProperties;

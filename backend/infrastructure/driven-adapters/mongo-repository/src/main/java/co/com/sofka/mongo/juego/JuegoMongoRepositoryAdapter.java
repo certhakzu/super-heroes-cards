@@ -2,9 +2,6 @@ package co.com.sofka.mongo.juego;
 
 import co.com.sofka.model.juego.Juego;
 import co.com.sofka.model.juego.gateways.JuegoRepository;
-import co.com.sofka.model.jugador.Jugador;
-import co.com.sofka.model.tarjeta.Tarjeta;
-import co.com.sofka.model.tarjeta.gateways.TarjetaRepository;
 import co.com.sofka.mongo.helper.AdapterOperations;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
@@ -41,7 +38,7 @@ implements JuegoRepository {
     }
 
     @Override
-    public Flux<Juego> crearJuego() {
+    public Flux<Juego> listarTodosLosJuegos() {
         return null;
     }
 }

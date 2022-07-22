@@ -2,9 +2,6 @@ package co.com.sofka.mongo.jugador;
 
 import co.com.sofka.model.jugador.Jugador;
 import co.com.sofka.model.jugador.gateways.JugadorRepository;
-import co.com.sofka.model.ronda.Ronda;
-import co.com.sofka.model.tarjeta.Tarjeta;
-import co.com.sofka.model.tarjeta.gateways.TarjetaRepository;
 import co.com.sofka.mongo.helper.AdapterOperations;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;

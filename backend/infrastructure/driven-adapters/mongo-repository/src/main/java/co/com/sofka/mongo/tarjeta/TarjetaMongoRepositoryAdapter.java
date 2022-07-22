@@ -28,18 +28,37 @@ implements TarjetaRepository {
                         tarjeta.getDescripcion(),
                         tarjeta.getCaracteristicas(),
                         tarjeta.getPoder(),
-                        tarjeta.getUrlImagen()))
+                        tarjeta.getUrlImagen(),
+                        tarjeta.getEsVisible()))
                 .flatMap(tarjetaDocument -> Mono.just(tarjeta));
     }
 
     @Override
     public Mono<Tarjeta> actualizar(String id, Tarjeta tarjeta) {
-        return null;
+        return repository.findById(id)
+                .map(tarjetaDocument -> {
+                    tarjetaDocument.setCaracteristicas(tarjeta.getCaracteristicas());
+                    tarjetaDocument.setDescripcion(tarjeta.getDescripcion());
+                    tarjetaDocument.setEsVisible(tarjeta.getEsVisible());
+                    tarjetaDocument.setPoder(tarjeta.getPoder());
+                    tarjetaDocument.setUrlImagen(tarjeta.getUrlImagen());
+                    return tarjeta;
+                });
     }
 
     @Override
     public Mono<Tarjeta> eliminar(String id) {
-        return null;
+        repository.deleteById(id);
+        return repository.findById(id)
+                .defaultIfEmpty(new TarjetaDocument())
+                .map(tarjetaDocument -> new Tarjeta(
+                        tarjetaDocument.getId(),
+                        tarjetaDocument.getDescripcion(),
+                        tarjetaDocument.getCaracteristicas(),
+                        tarjetaDocument.getPoder(),
+                        tarjetaDocument.getUrlImagen(),
+                        tarjetaDocument.getEsVisible())
+                );
     }
 
     @Override
@@ -49,7 +68,21 @@ implements TarjetaRepository {
                 tarjetaDocument.getDescripcion(),
                 tarjetaDocument.getCaracteristicas(),
                 tarjetaDocument.getPoder(),
-                tarjetaDocument.getUrlImagen()
+                tarjetaDocument.getUrlImagen(),
+                tarjetaDocument.getEsVisible()
         ));
+    }
+
+    @Override
+    public Mono<Tarjeta> obtenerTarjetaPorId(String id) {
+        return repository.findById(id)
+                .map(tarjetaDocument -> new Tarjeta(
+                        tarjetaDocument.getId(),
+                        tarjetaDocument.getDescripcion(),
+                        tarjetaDocument.getCaracteristicas(),
+                        tarjetaDocument.getPoder(),
+                        tarjetaDocument.getUrlImagen(),
+                        tarjetaDocument.getEsVisible()
+                ));
     }
 }
