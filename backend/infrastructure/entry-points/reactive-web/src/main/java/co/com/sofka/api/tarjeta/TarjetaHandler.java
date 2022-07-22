@@ -1,7 +1,7 @@
 package co.com.sofka.api.tarjeta;
 
 import co.com.sofka.model.tarjeta.Tarjeta;
-import co.com.sofka.usecase.creartarjeta.CrearTarjetaUseCase;
+import co.com.sofka.usecase.tarjeta.creartarjeta.CrearTarjetaUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;

@@ -33,7 +33,17 @@ implements TarjetaRepository {
     }
 
     @Override
-    public Flux<Tarjeta> listarTarjetas() {
+    public Mono<Tarjeta> actualizar(String id, Tarjeta tarjeta) {
+        return null;
+    }
+
+    @Override
+    public Mono<Tarjeta> eliminar(String id) {
+        return null;
+    }
+
+    @Override
+    public Flux<Tarjeta> listarTodasLasTarjetas() {
         return repository.findAll().map(tarjetaDocument -> new Tarjeta(
                 tarjetaDocument.getId(),
                 tarjetaDocument.getDescripcion(),

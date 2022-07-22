@@ -23,4 +23,24 @@ implements JugadorRepository {
          */
         super(repository, mapper, d -> mapper.map(d, Jugador.class));
     }
+
+    @Override
+    public Mono<Jugador> guardar(Jugador jugador) {
+        return null;
+    }
+
+    @Override
+    public Mono<Jugador> eliminarJugador(String id) {
+        return null;
+    }
+
+    @Override
+    public Mono<Jugador> actualizarJugador(String id, Jugador jugador) {
+        return null;
+    }
+
+    @Override
+    public Flux<Jugador> listarTodosLosJugador() {
+        return null;
+    }
 }

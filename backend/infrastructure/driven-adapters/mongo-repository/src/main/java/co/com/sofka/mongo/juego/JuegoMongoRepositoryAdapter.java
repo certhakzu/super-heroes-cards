@@ -24,4 +24,24 @@ implements JuegoRepository {
         super(repository, mapper, d -> mapper.map(d, Juego.class));
     }
 
+
+    @Override
+    public Mono<Juego> guardar(Juego juego) {
+        return null;
+    }
+
+    @Override
+    public Mono<Juego> eliminarJuego(String id) {
+        return null;
+    }
+
+    @Override
+    public Mono<Juego> actualizarJuego(String id, Juego juego) {
+        return null;
+    }
+
+    @Override
+    public Flux<Juego> crearJuego() {
+        return null;
+    }
 }

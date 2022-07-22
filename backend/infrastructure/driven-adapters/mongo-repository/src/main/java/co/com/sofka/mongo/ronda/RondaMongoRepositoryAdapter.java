@@ -25,4 +25,18 @@ implements RondaRepository {
     }
 
 
+    @Override
+    public Mono<Ronda> guardar(Ronda ronda) {
+        return null;
+    }
+
+    @Override
+    public Mono<Ronda> actualizar(String id, Ronda ronda) {
+        return null;
+    }
+
+    @Override
+    public Flux<Ronda> listarTodasLasRondas() {
+        return null;
+    }
 }
