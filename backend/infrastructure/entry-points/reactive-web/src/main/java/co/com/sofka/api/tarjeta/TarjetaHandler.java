@@ -1,4 +1,4 @@
-package co.com.sofka.api;
+package co.com.sofka.api.tarjeta;
 
 import co.com.sofka.model.tarjeta.Tarjeta;
 import co.com.sofka.usecase.creartarjeta.CrearTarjetaUseCase;
@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
 
 @Component
 @RequiredArgsConstructor
-public class Handler {
+public class TarjetaHandler {
 //private  final UseCase useCase;
 //private  final UseCase2 useCase2;
 

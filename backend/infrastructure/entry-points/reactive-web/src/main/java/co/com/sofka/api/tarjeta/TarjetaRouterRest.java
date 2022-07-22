@@ -1,4 +1,4 @@
-package co.com.sofka.api;
+package co.com.sofka.api.tarjeta;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,11 +10,11 @@ import static org.springframework.web.reactive.function.server.RequestPredicates
 
 
 @Configuration
-public class RouterRest {
+public class TarjetaRouterRest {
 @Bean
-public RouterFunction<ServerResponse> routerFunction(Handler handler) {
-    return route(POST("/api/usecase/creartarjeta"), handler::crearTarjeta);
-            //.andRoute(GET("/api/usecase/listartarjetas"), handler::listarTarjetas);
+public RouterFunction<ServerResponse> routerFunction(TarjetaHandler tarjetaHandler) {
+    return route(POST("/api/usecase/creartarjeta"), tarjetaHandler::crearTarjeta);
+            //.andRoute(GET("/api/usecase/listartarjetas"), tarjetaHandler::listarTarjetas);
 
     }
 }
