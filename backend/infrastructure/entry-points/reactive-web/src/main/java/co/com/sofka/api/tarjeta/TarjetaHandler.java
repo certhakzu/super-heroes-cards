@@ -37,30 +37,34 @@ public class TarjetaHandler {
 
     public Mono<ServerResponse> crearTarjeta(ServerRequest serverRequest) {
         return serverRequest.bodyToMono(Tarjeta.class) // Deberia ir un dto, pero vamos a pasar el model
-                .flatMap(tarjeta -> crearTarjetaUseCase.guardarTarjeta(tarjeta)) // flujo alterno para el proceso de almacenamiento
+                //.flatMap(tarjeta -> crearTarjetaUseCase.guardarTarjeta(tarjeta)) // flujo alterno para el proceso de almacenamiento
                 .flatMap(tarjeta -> ServerResponse
                         .ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .body(BodyInserters.fromValue(tarjeta), Tarjeta.class));
+                        .body(crearTarjetaUseCase.guardarTarjeta(tarjeta), Tarjeta.class));
     }
 
     public Mono<ServerResponse> listarTarjetas(ServerRequest serverRequest) {
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
+        return ServerResponse
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromPublisher(listarTarjetasUseCase.listarTarjetas(), Tarjeta.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
 
     public Mono<ServerResponse> eliminarTarjeta(ServerRequest serverRequest){
-        String id = serverRequest.pathVariable("id");
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromPublisher(eliminarTarjetaUseCase.eliminarTarjeta(id), Tarjeta.class))
-                .switchIfEmpty(ServerResponse.notFound().build());
+        var id = serverRequest.pathVariable("id");
+        return ServerResponse
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(eliminarTarjetaUseCase.eliminarTarjeta(id), Tarjeta.class);
     }
 
     public Mono<ServerResponse> actualizarTarjeta(ServerRequest serverRequest){
         return serverRequest.bodyToMono(Tarjeta.class)
-                .flatMap(tarjeta -> actualizarTarjetaUseCase.actualizarTarjeta(tarjeta.getId(), tarjeta))
-                .flatMap(tarjeta -> ServerResponse.ok()
+                .flatMap(tarjeta -> crearTarjetaUseCase.guardarTarjeta(tarjeta))
+                .flatMap(tarjeta -> ServerResponse
+                        .ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .bodyValue(tarjeta));
     }

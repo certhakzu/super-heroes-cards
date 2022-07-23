@@ -47,18 +47,8 @@ implements TarjetaRepository {
     }
 
     @Override
-    public Mono<Tarjeta> eliminar(String id) {
-        repository.deleteById(id);
-        return repository.findById(id)
-                .defaultIfEmpty(new TarjetaDocument())
-                .map(tarjetaDocument -> new Tarjeta(
-                        tarjetaDocument.getId(),
-                        tarjetaDocument.getDescripcion(),
-                        tarjetaDocument.getCaracteristicas(),
-                        tarjetaDocument.getPoder(),
-                        tarjetaDocument.getUrlImagen(),
-                        tarjetaDocument.getEsVisible())
-                );
+    public Mono<Void> eliminar(String id) {
+        return repository.deleteById(id);
     }
 
     @Override

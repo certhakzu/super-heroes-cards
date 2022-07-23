@@ -10,6 +10,6 @@ public class ListarJugadoresUseCase {
     private JugadorRepository repository;
 
     public Flux<Jugador> listarJugadores(){
-        return repository.listarTodosLosJugador();
+        return repository.listarTodosLosJugadores();
     }
 }

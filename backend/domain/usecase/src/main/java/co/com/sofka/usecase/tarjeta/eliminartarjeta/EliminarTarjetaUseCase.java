@@ -9,7 +9,7 @@ import reactor.core.publisher.Mono;
 public class EliminarTarjetaUseCase {
     private final TarjetaRepository repository;
 
-    public Mono<Tarjeta> eliminarTarjeta(String id){
+    public Mono<Void> eliminarTarjeta(String id){
         return repository.eliminar(id);
     }
 }

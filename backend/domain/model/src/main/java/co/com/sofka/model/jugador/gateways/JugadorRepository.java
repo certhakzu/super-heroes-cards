@@ -7,7 +7,8 @@ import reactor.core.publisher.Mono;
 public interface JugadorRepository {
 
     Mono<Jugador> guardar(Jugador jugador);
-    Mono<Jugador> eliminarJugador(String id);
+    Mono<Void> eliminarJugador(String id);
     Mono<Jugador> actualizarJugador(String id, Jugador jugador);
-    Flux<Jugador> listarTodosLosJugador();
+    Flux<Jugador> listarTodosLosJugadores();
+    Mono<Jugador> obtenerJugadorPorId(String id);
 }

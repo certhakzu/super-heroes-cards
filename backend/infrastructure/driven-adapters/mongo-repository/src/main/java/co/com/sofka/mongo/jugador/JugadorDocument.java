@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -19,5 +20,5 @@ public class JugadorDocument {
     private String id;
     private String alias;
     private Integer puntos;
-    private Set<Tarjeta> mazo;
+    private Set<Tarjeta> mazo = new HashSet<>();
 }

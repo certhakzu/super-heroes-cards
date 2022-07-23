@@ -1,4 +1,4 @@
-package co.com.sofka.usecase.jugador.eliminarjugador;
+package co.com.sofka.usecase.jugador.obtenerjugadorporid;
 
 import co.com.sofka.model.jugador.Jugador;
 import co.com.sofka.model.jugador.gateways.JugadorRepository;
@@ -6,10 +6,10 @@ import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @RequiredArgsConstructor
-public class EliminarJugadorUseCase {
+public class ObtenerJugadorPorIdUseCase {
     private final JugadorRepository repository;
 
-    public Mono<Void> eliminarJugador(String id){
-        return repository.eliminarJugador(id);
+    public Mono<Jugador> obtenerJugadorPorId(String id){
+        return repository.obtenerJugadorPorId(id);
     }
 }

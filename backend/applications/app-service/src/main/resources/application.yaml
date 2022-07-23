@@ -13,7 +13,7 @@ spring:
     include: null
   data:
     mongodb:
-      uri: "mongodb+srv://peter:peter@cluster0-prueba.kuwmb.mongodb.net/super_heroes_cards?retryWrites=true&w=majority"
+      uri: "mongodb://localhost:27017/super_heroes_cards"
 management:
   endpoints:
     web:

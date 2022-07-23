@@ -16,6 +16,7 @@ public class TarjetaRouterRest {
         return route(GET("/api/listartarjetas"), tarjetaHandler::listarTarjetas)
                 .andRoute(GET("/api/tarjeta/{id}"), tarjetaHandler::obtenerTarjeta)
                 .andRoute(POST("/api/tarjeta/crear"), tarjetaHandler::crearTarjeta)
-                .andRoute(POST("/api/tarjeta/actualizar"), tarjetaHandler::actualizarTarjeta);
+                .andRoute(POST("/api/tarjeta/actualizar"), tarjetaHandler::actualizarTarjeta)
+                .andRoute(DELETE("/api/tarjeta/{id}"), tarjetaHandler::eliminarTarjeta);
     }
 }
