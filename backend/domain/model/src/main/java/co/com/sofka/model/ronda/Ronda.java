@@ -6,7 +6,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.swing.*;
 import java.util.Map;
 
 @Data
@@ -15,7 +14,8 @@ import java.util.Map;
 @AllArgsConstructor
 public class Ronda {
     private String id;
-    private Timer cronometro;
-    private Map<Jugador, Tarjeta> apuesta;
+    private Integer cronometro;
+    private Map<String, String> apuesta; // idJugador - idTarjeta
+    private String idGanador;
 
 }

@@ -41,7 +41,8 @@ public class JugadorHandler {
 
     public Mono<ServerResponse> eliminarJugador(ServerRequest serverRequest){
         var id = serverRequest.pathVariable("id");
-        return ServerResponse.ok()
+        return ServerResponse
+                .ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(eliminarJugadorUseCase.eliminarJugador(id), Jugador.class);
     }
@@ -61,7 +62,6 @@ public class JugadorHandler {
         return ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromPublisher(obtenerJugadorPorIdUseCase.obtenerJugadorPorId(id), Jugador.class))
-                .switchIfEmpty(ServerResponse.notFound().build());
+                .body(obtenerJugadorPorIdUseCase.obtenerJugadorPorId(id), Jugador.class);
     }
 }
