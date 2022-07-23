@@ -1,7 +1,6 @@
 package co.com.sofka.api.jugador;
 
 import co.com.sofka.model.jugador.Jugador;
-import co.com.sofka.model.tarjeta.Tarjeta;
 import co.com.sofka.usecase.jugador.actualizarjugador.ActualizarJugadorUseCase;
 import co.com.sofka.usecase.jugador.crearjugador.CrearJugadorUseCase;
 import co.com.sofka.usecase.jugador.eliminarjugador.EliminarJugadorUseCase;
@@ -48,11 +47,12 @@ public class JugadorHandler {
     }
 
     public Mono<ServerResponse> actualizarJugador(ServerRequest serverRequest){
-        return serverRequest.bodyToMono(Jugador.class)
-                .flatMap(jugador -> ServerResponse
-                        .ok()
+        String id = serverRequest.pathVariable("id");
+        return serverRequest
+                .bodyToMono(Jugador.class)
+                .flatMap(element -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(jugador));
+                        .body(actualizarJugadorUseCase.actualizarJugador(id, element), Jugador.class));
     }
 
     public Mono<ServerResponse> obtenerJugador(ServerRequest serverRequest){

@@ -72,7 +72,9 @@ public class TarjetaHandler {
     public Mono<ServerResponse> obtenerTarjeta(ServerRequest serverRequest){
         String id = serverRequest.pathVariable("id");
 
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
+        return ServerResponse
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
                 .body(BodyInserters.fromPublisher(obtenerTarjetaPorIdUseCase.obtenerTarjetaPorId(id), Tarjeta.class))
                 .switchIfEmpty(ServerResponse.notFound().build());
     }
