@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceAuthService } from '../auth/service-auth.service';
 
 @Component({
   selector: 'app-registro-componente',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponenteComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authenticationService: ServiceAuthService) { }
 
   ngOnInit(): void {
   }

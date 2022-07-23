@@ -6,6 +6,11 @@ import { AutencicacionModuloComponent } from './autencicacion-modulo/autencicaci
 import { RegistroComponenteComponent } from './registro-componente/registro-componente.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
+import{environment}from '../environments/environment';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+
+
 
 @NgModule({
   declarations: [
@@ -15,7 +20,10 @@ import { AngularFireModule } from '@angular/fire/compat';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule ,
+    AngularFirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
