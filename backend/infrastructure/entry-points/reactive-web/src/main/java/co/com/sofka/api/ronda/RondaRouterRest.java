@@ -18,9 +18,5 @@ public class RondaRouterRest {
         return route(POST("api/ronda"), rondaHandler::crearRonda)
                 .andRoute(GET("/api/ronda"), rondaHandler::listarRondas)
                 .andRoute(GET("/api/ronda/{id}"), rondaHandler::obtenerRondaPorId);
-                //route(GET("/api/listarondas"), rondaHandler::listarTarjetas) // No funciona
-                //.andRoute(GET("/api/ronda/{id}"), rondaHandler::obtenerTarjeta) // No funciona
-                //.andRoute(POST("/api/ronda/crear"), rondaHandler::crearRonda) // No funciona
-                //.andRoute(POST("/api/ronda/actualizar"), rondaHandler::actualizarTarjeta); // No funciona
     }
 }

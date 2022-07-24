@@ -9,4 +9,7 @@ public interface JuegoRepository {
     Mono<Juego> eliminarJuego(String id);
     Mono<Juego> actualizarJuego(String id, Juego juego);
     Flux<Juego> listarTodosLosJuegos();
+
+    // repartir cartas
+    // validar usuario
 }
