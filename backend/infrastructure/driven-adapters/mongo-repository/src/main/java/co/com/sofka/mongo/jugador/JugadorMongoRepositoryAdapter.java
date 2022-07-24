@@ -3,7 +3,6 @@ package co.com.sofka.mongo.jugador;
 import co.com.sofka.model.jugador.Jugador;
 import co.com.sofka.model.jugador.gateways.JugadorRepository;
 import co.com.sofka.mongo.helper.AdapterOperations;
-import co.com.sofka.mongo.tarjeta.TarjetaDocument;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;

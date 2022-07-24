@@ -4,6 +4,8 @@ import co.com.sofka.model.jugador.Jugador;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import java.util.Set;
+
 public interface JugadorRepository {
 
     Mono<Jugador> guardar(Jugador jugador);
