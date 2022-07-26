@@ -7,6 +7,11 @@ import{RegistroComponenteComponent}from './registro-componente/registro-componen
 
 const rutas: Routes=[
   {
+    path:'',
+    redirectTo:'/login',
+    pathMatch:'full'
+  },
+  {
     path :"login",
     component: AutencicacionModuloComponent,
 
