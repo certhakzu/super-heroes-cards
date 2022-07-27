@@ -21,10 +21,8 @@ import java.util.Set;
 public class Juego {
     private String id;
     private Set<Tarjeta> baraja; // contiene los id de las tarjetas
-    private Set<String> rondas; // contiene los id de las rondas de este juego
-    private Set<String> jugadores; // contiene los id de los jugadores habilitados para jugar este juego
+    private Set<Ronda> rondas; // contiene los id de las rondas de este juego
+    private Set<Jugador> jugadores; // contiene los id de los jugadores habilitados para jugar este juego
     private String idGanador;
-
-
 
 }

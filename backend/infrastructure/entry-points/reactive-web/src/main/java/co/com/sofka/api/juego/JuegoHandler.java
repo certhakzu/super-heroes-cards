@@ -2,6 +2,7 @@ package co.com.sofka.api.juego;
 
 import co.com.sofka.model.juego.Juego;
 import co.com.sofka.model.jugador.Jugador;
+import co.com.sofka.usecase.juego.agregarjugadoraljuego.AgregarJugadorAlJuegoUseCase;
 import co.com.sofka.usecase.juego.crearjuego.CrearJuegoUseCase;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
@@ -15,6 +16,7 @@ import reactor.core.publisher.Mono;
 public class JuegoHandler {
 
     private final CrearJuegoUseCase crearJuegoUseCase;
+    private final AgregarJugadorAlJuegoUseCase agregarJugadorAlJuegoUseCase;
 
     public Mono<ServerResponse> crearJuego(ServerRequest serverRequest) {
         return serverRequest.bodyToMono(Juego.class)
@@ -22,6 +24,14 @@ public class JuegoHandler {
                         .ok()
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(crearJuegoUseCase.crearJuego(juego), Juego.class));
+    }
+
+    public Mono<ServerResponse> agregarJugador(ServerRequest serverRequest){
+        var id =serverRequest.pathVariable("id");
+        return serverRequest.bodyToMono(Jugador.class)
+                .flatMap(jugador -> ServerResponse.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(agregarJugadorAlJuegoUseCase.agregarJugadorAlJuego(id, jugador), Juego.class));
     }
 
 }
