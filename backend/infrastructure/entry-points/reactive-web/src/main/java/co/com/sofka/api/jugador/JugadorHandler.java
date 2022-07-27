@@ -1,7 +1,6 @@
 package co.com.sofka.api.jugador;
 
 import co.com.sofka.model.jugador.Jugador;
-import co.com.sofka.model.tarjeta.Tarjeta;
 import co.com.sofka.usecase.jugador.actualizarjugador.ActualizarJugadorUseCase;
 import co.com.sofka.usecase.jugador.crearjugador.CrearJugadorUseCase;
 import co.com.sofka.usecase.jugador.eliminarjugador.EliminarJugadorUseCase;
@@ -42,17 +41,19 @@ public class JugadorHandler {
 
     public Mono<ServerResponse> eliminarJugador(ServerRequest serverRequest){
         var id = serverRequest.pathVariable("id");
-        return ServerResponse.ok()
+        return ServerResponse
+                .ok()
                 .contentType(MediaType.APPLICATION_JSON)
                 .body(eliminarJugadorUseCase.eliminarJugador(id), Jugador.class);
     }
 
     public Mono<ServerResponse> actualizarJugador(ServerRequest serverRequest){
-        return serverRequest.bodyToMono(Jugador.class)
-                .flatMap(jugador -> ServerResponse
-                        .ok()
+        String id = serverRequest.pathVariable("id");
+        return serverRequest
+                .bodyToMono(Jugador.class)
+                .flatMap(element -> ServerResponse.ok()
                         .contentType(MediaType.APPLICATION_JSON)
-                        .bodyValue(jugador));
+                        .body(actualizarJugadorUseCase.actualizarJugador(id, element), Jugador.class));
     }
 
     public Mono<ServerResponse> obtenerJugador(ServerRequest serverRequest){
@@ -61,7 +62,6 @@ public class JugadorHandler {
         return ServerResponse
                 .ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(BodyInserters.fromPublisher(obtenerJugadorPorIdUseCase.obtenerJugadorPorId(id), Jugador.class))
-                .switchIfEmpty(ServerResponse.notFound().build());
+                .body(obtenerJugadorPorIdUseCase.obtenerJugadorPorId(id), Jugador.class);
     }
 }

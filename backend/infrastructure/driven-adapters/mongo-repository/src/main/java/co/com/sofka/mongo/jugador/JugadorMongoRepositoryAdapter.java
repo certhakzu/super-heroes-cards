@@ -3,7 +3,6 @@ package co.com.sofka.mongo.jugador;
 import co.com.sofka.model.jugador.Jugador;
 import co.com.sofka.model.jugador.gateways.JugadorRepository;
 import co.com.sofka.mongo.helper.AdapterOperations;
-import co.com.sofka.mongo.tarjeta.TarjetaDocument;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
@@ -41,23 +40,28 @@ implements JugadorRepository {
     public Mono<Jugador> actualizarJugador(String id, Jugador jugador) {
         jugador.setId(id);
 
-        return  repository.save(
-                new JugadorDocument(
+        return repository
+                .save(new JugadorDocument(
                         jugador.getId(),
                         jugador.getAlias(),
                         jugador.getPuntos(),
-                        jugador.getMazo())
-        ).flatMap(element -> Mono.just(jugador));    }
+                        jugador.getMazo()
+                ))
+                .flatMap(element -> Mono.just(jugador));
+    }
 
     @Override
     public Flux<Jugador> listarTodosLosJugadores() {
         return repository.findAll()
-                .map(jugadorDocument -> new Jugador(
-                        jugadorDocument.getId(),
-                        jugadorDocument.getAlias(),
-                        jugadorDocument.getPuntos(),
-                        jugadorDocument.getMazo()
-                ));
+                .map(jugadorDocument ->
+                {
+                    return new Jugador(
+                            jugadorDocument.getId(),
+                            jugadorDocument.getAlias(),
+                            jugadorDocument.getPuntos(),
+                            jugadorDocument.getMazo()
+                    );
+                });
     }
 
     @Override

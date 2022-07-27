@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.swing.*;
 import java.util.Map;
 
 @Document
@@ -17,6 +18,7 @@ import java.util.Map;
 public class RondaDocument {
     @Id
     private String id;
-    private Short cronometro;
-    private Map<Jugador, Tarjeta> apuesta;
+    private Integer cronometro;
+    private Map<String, String> apuesta; // idJugador - idTarjeta
+    private String idGanador;
 }
