@@ -1,4 +1,4 @@
-package co.com.sofka.model.ronda;
+package co.com.sofka.model.mazo;
 
 import co.com.sofka.model.tarjeta.Tarjeta;
 import lombok.AllArgsConstructor;
@@ -6,15 +6,14 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Map;
+import java.util.Set;
 
 @Data
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
-public class Ronda {
+public class Mazo {
+
     private String id;
-    private Integer cronometro;
-    private Map<String, Tarjeta> apuesta; // idJugador - Tarjeta del jugador
-    private String idGanador;
+    private Set<Tarjeta>tarjetas;
 }

@@ -1,5 +1,8 @@
 package co.com.sofka.model.juego;
 
+import co.com.sofka.model.jugador.Jugador;
+import co.com.sofka.model.ronda.Ronda;
+import co.com.sofka.model.tarjeta.Tarjeta;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,7 +20,11 @@ import java.util.Set;
 @AllArgsConstructor
 public class Juego {
     private String id;
-    private Set<String> baraja; // contiene los id de las tarjetas
+    private Set<Tarjeta> baraja; // contiene los id de las tarjetas
     private Set<String> rondas; // contiene los id de las rondas de este juego
     private Set<String> jugadores; // contiene los id de los jugadores habilitados para jugar este juego
+    private String idGanador;
+
+
+
 }

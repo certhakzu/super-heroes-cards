@@ -11,12 +11,7 @@ import java.util.Set;
 
 public interface JuegoRepository {
     Mono<Juego> guardar(Juego juego);
-    Mono<Juego> eliminarJuego(String id);
-    Mono<Juego> actualizarJuego(String id, Juego juego);
     Flux<Juego> listarTodosLosJuegos();
 
-    // repartir cartas
-    Flux<Tarjeta> repartirCartas(Short numeroDeJugadores);
-    // validar usuario
-    Mono<Boolean> validarJugador(Jugador jugador);
+    Mono<Juego> obtenerJuegoPorId(String id);
 }
