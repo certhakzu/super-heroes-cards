@@ -2,6 +2,9 @@ package co.com.sofka.api.jugador;
 
 import co.com.sofka.model.jugador.Jugador;
 
+import co.com.sofka.model.mazo.Mazo;
+import co.com.sofka.usecase.jugador.actualizarmazodeJugador.ActualizarMazoDeJugadorUseCase;
+import co.com.sofka.usecase.jugador.agregarpuntos.AgregarPuntosUseCase;
 import co.com.sofka.usecase.jugador.apostartarjeta.ApostarTarjetaUseCase;
 import co.com.sofka.usecase.jugador.crearjugador.CrearJugadorUseCase;
 import co.com.sofka.usecase.jugador.obtenerjugadorporid.ObtenerJugadorPorIdUseCase;
@@ -21,6 +24,8 @@ public class JugadorHandler {
     private final ObtenerJugadorPorIdUseCase obtenerJugadorPorIdUseCase;
     private final RetirarJugadorUseCase retirarJugadorUseCase;
     private final ApostarTarjetaUseCase apostarTarjetaUseCase;
+    private final AgregarPuntosUseCase agregarPuntosUseCase;
+    private final ActualizarMazoDeJugadorUseCase actualizarMazoDeJugadorUseCase;
 
     public Mono<ServerResponse> crearJugador(ServerRequest serverRequest) {
         return serverRequest.bodyToMono(Jugador.class) // Deberia ir un dto, pero vamos a pasar el model
@@ -59,5 +64,24 @@ public class JugadorHandler {
                         .contentType(MediaType.APPLICATION_JSON)
                         .body(apostarTarjetaUseCase.apostarTarjeta(id,s), Jugador.class));
 
+    }
+
+    public Mono<ServerResponse> agregarPuntos(ServerRequest serverRequest){
+        String id = serverRequest.pathVariable("id");
+        return ServerResponse
+                .ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(agregarPuntosUseCase.agregarPuntos(id), Jugador.class);
+    }
+
+    public Mono<ServerResponse> actualizarMazo(ServerRequest serverRequest){
+        String id = serverRequest.pathVariable("id");
+
+        return serverRequest
+                .bodyToMono(Mazo.class)
+                .flatMap(mazo -> ServerResponse
+                        .ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(actualizarMazoDeJugadorUseCase.actualizarMazoDeJugador(id, mazo), Mazo.class));
     }
 }

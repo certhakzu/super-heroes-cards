@@ -10,7 +10,7 @@ import reactor.core.publisher.Mono;
 public class ActualizarMazoDeJugadorUseCase {
     private final JugadorRepository repository;
 
-    public Mono<Jugador> actualizarMazoDeJugador(String id, Mazo mazo){
+    public Mono<Jugador> actualizarMazoDeJugador(String id, Mazo mazo){ //id jugador y Mazo nuezo
         return repository.obtenerJugadorPorId(id)
                 .map(jugador -> {
                     jugador.setMazo(mazo);

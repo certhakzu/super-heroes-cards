@@ -18,6 +18,7 @@ public class RondaRouterRest {
         return route(POST("api/ronda"), rondaHandler::crearRonda)
                 .andRoute(GET("/api/ronda"), rondaHandler::listarRondas)
                 .andRoute(GET("/api/ronda/definirganador/{id}"), rondaHandler::definirGanadorDeRonda)
-                .andRoute(GET("/api/ronda/dartarjetasaganador/{id}"), rondaHandler::darTarjetasAlGanadorDeRonda);
+                .andRoute(GET("/api/ronda/devolvertarjetasapostadas/{id}"), rondaHandler::devolverTarjetasApostadas)
+                .andRoute(POST("/api/ronda/establecerapuesta/{id}"), rondaHandler::establecerApuesta); //Espero el id de la ronda en la url y el Map de apuestas en el body
     }
 }

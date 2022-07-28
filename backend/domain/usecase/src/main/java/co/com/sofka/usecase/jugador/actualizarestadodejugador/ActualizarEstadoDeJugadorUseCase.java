@@ -13,13 +13,13 @@ public class ActualizarEstadoDeJugadorUseCase {
     public Mono<Jugador> actualizarEstadoDeJugador(String id){
         return repository.obtenerJugadorPorId(id)
                 .map(jugador -> {
-                    //jugador.setEsActivo(!jugador.getEsActivo())
-                    if (jugador.getEsActivo().equals(Boolean.FALSE)){
+                    jugador.setEsActivo(jugador.getEsActivo().equals(Boolean.FALSE));
+                    return jugador;
+                    /*if (jugador.getEsActivo().equals(Boolean.FALSE)){
                         jugador.setEsActivo(true);
                     } else {
                         jugador.setEsActivo(false);
-                    }
-                    return jugador;
+                    }*/
                 })
                 .flatMap(repository::guardar);
     }
