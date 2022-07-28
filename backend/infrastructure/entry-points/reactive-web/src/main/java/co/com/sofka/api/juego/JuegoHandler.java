@@ -19,7 +19,6 @@ public class JuegoHandler {
 
     private final CrearJuegoUseCase crearJuegoUseCase;
     private final AgregarJugadorAlJuegoUseCase agregarJugadorAlJuegoUseCase;
-
     private final RepartirMazosUseCase repartirMazosUseCase;
 
     public Mono<ServerResponse> crearJuego(ServerRequest serverRequest) {

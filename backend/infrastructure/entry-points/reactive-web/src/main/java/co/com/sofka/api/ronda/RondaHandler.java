@@ -41,6 +41,7 @@ public class RondaHandler {
                 .body(listarRondasUseCase.listarRondas(), Ronda.class);
     }
 
+
     public Mono<ServerResponse> definirGanadorDeRonda(ServerRequest serverRequest){
         var id = serverRequest.pathVariable("id");
         return ServerResponse

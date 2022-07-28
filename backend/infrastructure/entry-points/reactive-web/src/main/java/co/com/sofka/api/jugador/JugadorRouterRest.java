@@ -14,10 +14,12 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class JugadorRouterRest {
     @Bean
     public RouterFunction<ServerResponse> jugadorRouterFunctionHandler(JugadorHandler jugadorHandler) {
+
         return route(POST("/api/jugador/crear"), jugadorHandler::crearJugador)
                 .andRoute(GET("/api/jugador/{id}"), jugadorHandler::obtenerJugador)
                 .andRoute(GET("/api/jugador/retirarjugador/{id]"), jugadorHandler::retirarJugador)
                 .andRoute(POST("/api/jugador/apostartarjeta/{id}"), jugadorHandler::apostarTarjeta); // {id} id del jugador y en el body se le pasa el id de la tarjeta apostada
                 /*.andRoute(DELETE("/api/jugador/{id}"), jugadorHandler::eliminarJugador);*/
+
     }
 }
