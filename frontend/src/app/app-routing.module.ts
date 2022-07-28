@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Route, RouterModule, Routes } from '@angular/router';
 import{AutencicacionModuloComponent}from './autencicacion-modulo/autencicacion-modulo.component';
 import{RegistroComponenteComponent}from './registro-componente/registro-componente.component';
-
+import { JuegoComponent } from './components/juego/juego.component';
 
 const rutas: Routes=[
   {
@@ -19,6 +19,10 @@ const rutas: Routes=[
   {
     path:"registro",
     component:RegistroComponenteComponent
+  },
+  {
+    path:"juego",
+    component: JuegoComponent
   }
 ]
 

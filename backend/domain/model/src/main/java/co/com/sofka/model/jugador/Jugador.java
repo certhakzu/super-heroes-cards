@@ -1,12 +1,12 @@
 package co.com.sofka.model.jugador;
 import co.com.sofka.model.mazo.Mazo;
-import co.com.sofka.model.tarjeta.Tarjeta;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
+
 
 @Data
 @Builder(toBuilder = true)

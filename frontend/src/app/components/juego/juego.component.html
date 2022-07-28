@@ -1,0 +1,109 @@
+<div class="container-fluid bg-warning">
+    <div class="row">
+        <div class="col-md">
+            <header class="py-3">
+                <h3 class="text-center">Juego de monda By Raul </h3>
+            </header>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-header">
+                    Tablero
+                </div>
+                <div class="p-4">
+                    <table class="table align-middle" id="crud-table">
+                        <thead>
+                            <tr>
+                                <th>jugador 01</th>
+                                <th>jugador 02</th>
+                                <th>jugador 03</th>
+                                <th>jugador 04</th>
+                                
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--Cuerpo de la tabla a generar dinamicamente-->
+                        </tbody>
+                    </table>
+                    <template id="crud-template">
+                        <tr>
+                            <td class="name"></td>
+                            <td class="constellation"></td>
+                            <td class="armor"></td>
+                            <td>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            
+                                            <button class=" btn btn-primary edit "><i class="bi bi-pencil-square" ></i></button>
+                                            
+                                            
+                                        </div>
+                                        
+                                        <div class="col-sm-4">
+                                            <button class="btn btn-danger delete"><i class="bi bi-trash" id="delete"></i></button>
+                                        </div>
+
+
+                                    </div>
+                                    
+                                </div> 
+                            </td>
+                        </tr>
+                    </template>
+                    
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    :
+                </div>
+                <form class="p-4" id="crud-form">
+                    <div class="mb-3">
+                        <label class="form-label">Jugador 01: </label>
+                        <input type="text" class="form-control" name="nombre" autofocus required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jugador 02: </label>
+                        <input type="text" class="form-control" name="constelacion" autofocus required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jugador 03 </label>
+                        <input type="text" class="form-control" name="armadura" autofocus required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jugador 04 </label>
+                        <input type="text" class="form-control" name="armadura" autofocus required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jugador 05 </label>
+                        <input type="text" class="form-control" name="armadura" autofocus required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Jugador 06</label>
+                        <input type="text" class="form-control" name="armadura" autofocus required>
+                    </div>
+                    <div class="d-grid">
+                        <input type="hidden" name="id">
+                        <input type="submit" class="btn btn-primary" value="Empezar Partida">
+                    </div>
+                </form>
+
+            </div>
+            
+
+        </div>
+
+    </div>
+    
+    
+</div>
+

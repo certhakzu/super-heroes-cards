@@ -24,44 +24,12 @@ implements JugadorRepository {
     @Override
     public Mono<Jugador> guardar(Jugador jugador) {
         return repository.save(new JugadorDocument(
-                        jugador.getId(),
-                        jugador.getAlias(),
-                        jugador.getPuntos(),
-                        jugador.getMazo()))
-                .flatMap(jugadorDocument -> Mono.just(jugador));
-    }
-
-    @Override
-    public Mono<Void> eliminarJugador(String id) {
-        return repository.deleteById(id);
-    }
-
-    @Override
-    public Mono<Jugador> actualizarJugador(String id, Jugador jugador) {
-        jugador.setId(id);
-
-        return repository
-                .save(new JugadorDocument(
-                        jugador.getId(),
-                        jugador.getAlias(),
-                        jugador.getPuntos(),
-                        jugador.getMazo()
-                ))
-                .flatMap(element -> Mono.just(jugador));
-    }
-
-    @Override
-    public Flux<Jugador> listarTodosLosJugadores() {
-        return repository.findAll()
-                .map(jugadorDocument ->
-                {
-                    return new Jugador(
-                            jugadorDocument.getId(),
-                            jugadorDocument.getAlias(),
-                            jugadorDocument.getPuntos(),
-                            jugadorDocument.getMazo()
-                    );
-                });
+                jugador.getId(),
+                jugador.getAlias(),
+                jugador.getPuntos(),
+                jugador.getMazo(),
+                jugador.getEsActivo()
+        )).flatMap(jugadorDocument -> Mono.just(jugador));
     }
 
     @Override
@@ -71,7 +39,8 @@ implements JugadorRepository {
                         jugadorDocument.getId(),
                         jugadorDocument.getAlias(),
                         jugadorDocument.getPuntos(),
-                        jugadorDocument.getMazo()
+                        jugadorDocument.getMazo(),
+                        jugadorDocument.getEsActivo()
                 ));
     }
 }

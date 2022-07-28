@@ -14,10 +14,10 @@ import static org.springframework.web.reactive.function.server.RouterFunctions.r
 public class JugadorRouterRest {
     @Bean
     public RouterFunction<ServerResponse> jugadorRouterFunctionHandler(JugadorHandler jugadorHandler) {
-        return route(GET("/api/jugador"), jugadorHandler::listarJugadores) // NO FUNCIONA
+        return null;/*route(GET("/api/jugador"), jugadorHandler::listarJugadores) // NO FUNCIONA
                 .andRoute(GET("/api/jugador/{id}"), jugadorHandler::obtenerJugador)
                 .andRoute(POST("/api/jugador/crear"), jugadorHandler::crearJugador)
                 .andRoute(POST("/api/jugador/actualizar/{id}"), jugadorHandler::actualizarJugador)
-                .andRoute(DELETE("/api/jugador/{id}"), jugadorHandler::eliminarJugador);
+                .andRoute(DELETE("/api/jugador/{id}"), jugadorHandler::eliminarJugador);*/
     }
 }

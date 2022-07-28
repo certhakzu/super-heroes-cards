@@ -14,9 +14,9 @@ public class JuegoRouterRest {
 
     @Bean
     public RouterFunction<ServerResponse> juegoRouterFunctionHandler(JuegoHandler juegoHandler) {
-        return route(POST("/api/juego"), juegoHandler::crearJuego);
-                /*.andRoute(GET("/api/jugador/{id}"), jugadorHandler::obtenerJugador)
-                .andRoute(POST("/api/jugador/crear"), jugadorHandler::crearJugador)
+        return route(POST("/api/juego"), juegoHandler::crearJuego)
+                .andRoute(POST("/api/juego/agregarjugador/{id}"), juegoHandler::agregarJugador);
+                /*.andRoute(POST("/api/jugador/crear"), jugadorHandler::crearJugador)
                 .andRoute(POST("/api/jugador/actualizar/{id}"), jugadorHandler::actualizarJugador)
                 .andRoute(DELETE("/api/jugador/{id}"), jugadorHandler::eliminarJugador);*/
     }

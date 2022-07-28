@@ -1,7 +1,6 @@
 package co.com.sofka.api.tarjeta;
 
 import co.com.sofka.model.tarjeta.Tarjeta;
-import co.com.sofka.usecase.juego.eliminarjuego.EliminarJuegoUseCase;
 import co.com.sofka.usecase.tarjeta.actualizartarjeta.ActualizarTarjetaUseCase;
 import co.com.sofka.usecase.tarjeta.creartarjeta.CrearTarjetaUseCase;
 import co.com.sofka.usecase.tarjeta.eliminartarjeta.EliminarTarjetaUseCase;
@@ -25,15 +24,6 @@ public class TarjetaHandler {
     private final ActualizarTarjetaUseCase actualizarTarjetaUseCase;
     private final ListarTarjetasUseCase listarTarjetasUseCase;
     private final ObtenerTarjetaPorIdUseCase obtenerTarjetaPorIdUseCase;
-    /*public Mono<ServerResponse> listenGETUseCase(ServerRequest serverRequest) {
-        // usecase.logic();
-        return ServerResponse.ok().bodyValue("");
-    }
-
-    public Mono<ServerResponse> listenGETOtherUseCase(ServerRequest serverRequest) {
-        // useCase2.logic();
-        return ServerResponse.ok().bodyValue("");
-    }*/
 
     public Mono<ServerResponse> crearTarjeta(ServerRequest serverRequest) {
         return serverRequest.bodyToMono(Tarjeta.class) // Deberia ir un dto, pero vamos a pasar el model
