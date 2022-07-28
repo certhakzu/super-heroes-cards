@@ -12,7 +12,7 @@ public class RetirarJugadorUseCase {
 
     private final JugadorRepository repository;
 
-    public Mono<Jugador> retirarse(String id) {
+    public Mono<Jugador> retirarJugador(String id) {
         return repository.obtenerJugadorPorId(id)
                 .map(jugador -> {
                     jugador.setEsActivo(false);

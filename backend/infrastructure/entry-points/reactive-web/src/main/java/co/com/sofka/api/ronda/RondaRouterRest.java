@@ -16,7 +16,8 @@ public class RondaRouterRest {
     @Bean
     public RouterFunction<ServerResponse> rondaRouterFunctionHandler(RondaHandler rondaHandler) {
         return route(POST("api/ronda"), rondaHandler::crearRonda)
-                .andRoute(GET("/api/ronda"), rondaHandler::listarRondas);
-                /*.andRoute(GET("/api/ronda/{id}"), rondaHandler::obtenerRondaPorId);*/
+                .andRoute(GET("/api/ronda"), rondaHandler::listarRondas)
+                .andRoute(GET("/api/ronda/definirganador/{id}"), rondaHandler::definirGanadorDeRonda)
+                .andRoute(GET("/api/ronda/dartarjetasaganador/{id}"), rondaHandler::darTarjetasAlGanadorDeRonda);
     }
 }

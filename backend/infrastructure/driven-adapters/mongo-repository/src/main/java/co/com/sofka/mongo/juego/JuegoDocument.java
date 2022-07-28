@@ -18,7 +18,8 @@ import java.util.Set;
 public class JuegoDocument {
     @Id
     private String id;
-    private Set<String> baraja;
-    private Set<String> rondas;
-    private Set<String> jugadores;
+    private Set<Tarjeta> baraja;
+    private Set<Ronda> rondas;
+    private Set<Jugador> jugadores;
+    private String idGanador;
 }
