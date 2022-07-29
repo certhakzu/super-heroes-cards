@@ -21,4 +21,5 @@ public class JuegoDocument {
     private Set<Tarjeta> baraja;
     private Set<Ronda> rondas;
     private Set<Jugador> jugadores;
+    private String idGanador;
 }

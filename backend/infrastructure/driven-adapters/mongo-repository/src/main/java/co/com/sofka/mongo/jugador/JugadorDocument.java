@@ -1,5 +1,6 @@
 package co.com.sofka.mongo.jugador;
 
+import co.com.sofka.model.mazo.Mazo;
 import co.com.sofka.model.tarjeta.Tarjeta;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,5 +21,6 @@ public class JugadorDocument {
     private String id;
     private String alias;
     private Integer puntos;
-    private Set<Tarjeta> mazo = new HashSet<>();
+    private Mazo mazo;
+    private Boolean esActivo;
 }

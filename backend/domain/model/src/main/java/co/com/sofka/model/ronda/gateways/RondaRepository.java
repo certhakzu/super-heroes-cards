@@ -6,6 +6,6 @@ import reactor.core.publisher.Mono;
 
 public interface RondaRepository {
     Mono<Ronda> guardar(Ronda ronda);
-    Mono<Ronda> actualizar(String id, Ronda ronda);
     Flux<Ronda> listarTodasLasRondas();
+    Mono<Ronda> obtenerRondaPorId(String idRonda); // devuelve id del ganador
 }
