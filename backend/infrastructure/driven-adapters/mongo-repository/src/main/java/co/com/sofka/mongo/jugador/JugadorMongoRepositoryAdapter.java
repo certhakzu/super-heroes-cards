@@ -5,7 +5,6 @@ import co.com.sofka.model.jugador.gateways.JugadorRepository;
 import co.com.sofka.mongo.helper.AdapterOperations;
 import org.reactivecommons.utils.ObjectMapper;
 import org.springframework.stereotype.Repository;
-import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Repository

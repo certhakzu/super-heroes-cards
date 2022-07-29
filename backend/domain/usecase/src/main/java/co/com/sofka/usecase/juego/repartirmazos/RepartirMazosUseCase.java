@@ -24,7 +24,7 @@ public class RepartirMazosUseCase {
         return juegoRepository.obtenerJuegoPorId(idJuego)
                 .map(juego -> {
                     var jugador =juego.getJugadores().stream()
-                            .map(jugador1 -> {
+                            .peek(jugador1 -> { // lo reemplacé por el map porque con este no tengo que retortar lo que estoy iterando
                                 var tarjetasRevueltas = List.copyOf(juego.getBaraja());
                                 Collections.shuffle(tarjetasRevueltas);
 
@@ -36,7 +36,6 @@ public class RepartirMazosUseCase {
                                         .filter(tarjeta -> tarjetasRevueltas.contains(tarjeta) == false)
                                         .collect(Collectors.toSet());
                                 juego.setBaraja(tarjetasActualizadas);
-                                return jugador1;
                             }).collect(Collectors.toSet());
                     juego.setJugadores(jugador);
                     return juego;

@@ -17,9 +17,9 @@ public class JuegoRouterRest {
         return route(POST("/api/juego"), juegoHandler::crearJuego)
 
                 .andRoute(POST("/api/juego/agregarjugador/{id}"), juegoHandler::agregarJugador)
-                .andRoute(GET("/api/juego/repartirmazos/{id}"), juegoHandler::repartirMazos);
-                /*.andRoute(POST("/api/jugador/actualizar/{id}"), jugadorHandler::actualizarJugador)
-                /*.andRoute(DELETE("/api/jugador/{id}"), jugadorHandler::eliminarJugador);*/
+                .andRoute(GET("/api/juego/repartirmazos/{id}"), juegoHandler::repartirMazos)
+                .andRoute(POST("/api/juego/agregaronda/{id}"), juegoHandler::agregarJugador) // en la url se le pasa el id del jeugo y en el cuerpo la ronda que se le va a agregar
+                .andRoute(GET("/api/juego/definirganador/{id}"), juegoHandler::definirGanador);
 
     }
 }
