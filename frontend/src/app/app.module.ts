@@ -15,7 +15,8 @@ import { TarjetasListComponent } from './components/tarjetas-list/tarjetas-list.
 import { JugadorListComponent } from './components/jugador-list/jugador-list.component';
 import { JuegoComponent } from './components/juego/juego.component';
 import { TarjetasServiceService } from './TarjetasService/tarjetas-service.service';
-import{JugadoresServiceService }  from './JugadoresService/jugadores-service.service'
+import{JugadoresServiceService }  from './JugadoresService/jugadores-service.service';
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 
 
 
@@ -27,7 +28,8 @@ import{JugadoresServiceService }  from './JugadoresService/jugadores-service.ser
     NavegacionComponent,
     TarjetasListComponent,
     JugadorListComponent,
-    JuegoComponent
+    JuegoComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
