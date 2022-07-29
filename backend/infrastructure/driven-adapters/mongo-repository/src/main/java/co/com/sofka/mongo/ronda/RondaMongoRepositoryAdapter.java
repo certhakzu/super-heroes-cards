@@ -1,6 +1,6 @@
 package co.com.sofka.mongo.ronda;
 
-import co.com.sofka.model.jugador.Jugador;
+
 import co.com.sofka.model.ronda.Ronda;
 import co.com.sofka.model.ronda.gateways.RondaRepository;
 import co.com.sofka.mongo.helper.AdapterOperations;
