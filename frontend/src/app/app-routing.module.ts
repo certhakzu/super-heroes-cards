@@ -4,6 +4,7 @@ import { Route, RouterModule, Routes } from '@angular/router';
 import{AutencicacionModuloComponent}from './autencicacion-modulo/autencicacion-modulo.component';
 import{RegistroComponenteComponent}from './registro-componente/registro-componente.component';
 import { JuegoComponent } from './components/juego/juego.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 const rutas: Routes=[
   {
@@ -23,6 +24,10 @@ const rutas: Routes=[
   {
     path:"juego",
     component: JuegoComponent
+  },
+  {
+    path:"dashboard",
+    component: DashboardComponent
   }
 ]
 
